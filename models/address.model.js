@@ -1,4 +1,4 @@
-const constants = require('../../QRCode/utils/constants');
+const constants = require('../utils/constants');
 
 module.exports = (sequelize, Sequelize) => 
 {
