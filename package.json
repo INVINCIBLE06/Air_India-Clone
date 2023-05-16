@@ -1,0 +1,28 @@
+{
+  "name": "air_india-clone",
+  "version": "1.0.0",
+  "description": "This is just a clone of flight booking application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/INVINCIBLE06/Air_India-Clone.git"
+  },
+  "author": "Saurabh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/INVINCIBLE06/Air_India-Clone/issues"
+  },
+  "homepage": "https://github.com/INVINCIBLE06/Air_India-Clone#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mysql2": "^3.3.1",
+    "sequelize": "^6.31.1"
+  }
+}
