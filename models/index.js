@@ -73,10 +73,10 @@ const db = {Sequelize,sequelize};
 // db.Sequelize = Sequelize;
 // db.sequelize = sequelize;
 
-db.User = require('./user.model')(sequelize, Sequelize);
-db.Address = require('./address.model')(sequelize, Sequelize, db.User);
+db.user = require('./user.model')(sequelize, Sequelize);
+db.address = require('./address.model')(sequelize, Sequelize, db.user);
 
-db.User.belongsToMany(db.Address,
+db.user.belongsToMany(db.address,
     {
         through: 'user_address',
         foreignKey: 'user_Id',
@@ -84,7 +84,7 @@ db.User.belongsToMany(db.Address,
         timestamps: false // Disable timestamps for the association
     });
 
-db.Address.belongsToMany(db.User,
+db.address.belongsToMany(db.user,
     {
         through: 'user_address',
         foreignKey: 'address_Id',
