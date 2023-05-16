@@ -5,12 +5,15 @@ const db = require("./models");
 const bodyParser = require('body-parser');
 const init = require('./init');
 
-db.sequelize.sync({ force: true }).then(() => 
+db.sequelize.sync({ force: true }).then(() =>  
 {
     console.log('tables dropped and recreated');
     // init();
 });
 
-require('./routes/auth.controller')(app)
+app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(bodyParser.json());
+
+require('./routes/auth.controller')(app);
 
 module.exports = app;
