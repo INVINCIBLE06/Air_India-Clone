@@ -9,7 +9,7 @@ exports.userDetailsByEmail = async (email) =>
         ({
             where:
             {
-                email: email
+                email : email
             }
         });
 
@@ -17,7 +17,7 @@ exports.userDetailsByEmail = async (email) =>
         {
             console.log(`#### No user found with this email ####`);
         }
-        
+        // console.log("Fetching :- ", details)
         return details;
     }
     catch (error)
