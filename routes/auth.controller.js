@@ -3,5 +3,5 @@ const authController = require('../controllers/auth.controller');
 
 module.exports = (app)=>
 {
-    app.post(`/air/india/clone/register`,);
+    app.post(`/flight/booking/clone/registeration`, authController.registration);
 };
