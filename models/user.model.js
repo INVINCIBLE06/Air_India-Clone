@@ -28,7 +28,7 @@ module.exports = (sequelize, Sequelize) =>
         },
         contact_no :
         {
-            type : Sequelize.INTEGER,
+            type : Sequelize.STRING,
             allowNull : false,
             required : true
         },
