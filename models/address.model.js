@@ -19,7 +19,7 @@ module.exports = (sequelize, Sequelize, User) =>
                 key: 'id',
             },
         },
-        plot_noORflat_no :
+        house_no :
         {
             type : Sequelize.STRING,
             allowNull : false,
