@@ -13,6 +13,7 @@ const sequelize = new Sequelize
   {
     host: config.host,
     dialect: config.dialect,
+    logging: false, // This line will stop printing the database queries in the terminal
     pool: {
       max: config.pool.max,
       min: config.pool.min,
