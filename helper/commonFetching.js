@@ -54,6 +54,32 @@ exports.userDetailsByContactNo = async (phone_number) =>
     }
 };
 
+exports.userDetailsByUserName = async (username) => 
+{
+    try
+    {
+        const details = await User.findOne
+        ({
+            where:
+            {
+                username : username
+            }
+        });
+
+        if (!details) 
+        {
+            console.log(`#### No user found with this username ####`);
+        }
+        // console.log("Fetching :- ", details)
+        return details;
+    }
+    catch (error)
+    {
+        console.log('Error retrieving user details on the basis of username:', error);
+        throw error;
+    }
+};
+
 exports.addressDetailsByid = async (id) =>
 {
     try 
