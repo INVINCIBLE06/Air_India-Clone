@@ -48,6 +48,12 @@ module.exports = (sequelize, Sequelize, User) =>
             allowNull : false,
             required : true
         },
+        pin_code : 
+        {
+            type : Sequelize.STRING,
+            allowNull : false,
+            required : true
+        },
         country :
         {
             type : Sequelize.STRING,
