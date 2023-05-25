@@ -1,11 +1,10 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { Sequelize, Op } = require('sequelize');
 const db = require('../models');
 const config = require('../configs/auth.config');
 const fetch = require('../helper/commonFetching');
-const User = db.user;
-const Add = db.address
+const User = db.user; 
+const Add = db.address;
 
 exports.registration = async (req, res) =>  
 {
@@ -78,24 +77,42 @@ exports.registration = async (req, res) =>
     }
 };
 
+
 exports.login = async (req, res) =>
 {
+    const { username, email, contact_no, password } = req.body;
+    let condition = null;
+    if(username)
+    {
+        condition = { username: username };
+    }
+    else if(email)
+    {
+        condition = { email: email };
+    }
+    else if(contact_no)
+    {
+        condition = { contact_no: contact_no };
+    }
+    else
+    {
+        return res.status(400).send
+        ({ 
+            message: "Invalid login credentials" 
+        });
+    }
     User.findOne
     ({
-        where:
-        {
-            [Op.or] : 
-            [
-                { username: req.body.username },
-                { email: req.body.email },
-                { contact_no: req.body.contact_no }
-            ]
-        }
-    }).then(user =>
+        where : condition
+    })
+    .then(user =>
         {
             if(!user)
             {
-                return res.status(404).send({message : "User Not found"});
+                return res.status(404).send
+                ({
+                    message : "User Not found"
+                });
             }
             var isValidPassword = bcrypt.compareSync(req.body.password, user.password);
             if(!isValidPassword)
@@ -103,9 +120,15 @@ exports.login = async (req, res) =>
                 return res.status(401).send 
                 ({
                     message : "Invalid Password"
-                })
+                });
+            }
+            else
+            {
+                return res.status(200).send 
+                ({
+                    message : "Login Successfully Done"
+                });
             }
         });
-
 }  
 
