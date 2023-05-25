@@ -5,7 +5,7 @@ const db = require("./models");
 const bodyParser = require('body-parser');
 const init = require('./init');
 
-db.sequelize.sync({ force: true }).then(() =>  
+db.sequelize.sync({ force: false }).then(() =>  
 {
     console.log('tables dropped and recreated');
     // init();
