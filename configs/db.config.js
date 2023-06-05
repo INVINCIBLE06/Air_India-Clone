@@ -9,7 +9,6 @@ module.exports =
         password : process.env.dbpassword,
         database : process.env.database,
         dialect : process.env.dialect,    
-        
         pool : 
         {
             max : 5,
@@ -17,6 +16,5 @@ module.exports =
             acquire : 30000,
             idle : 10000
         }
-
     },
 }

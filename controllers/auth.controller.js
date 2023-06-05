@@ -1,8 +1,10 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+
 const db = require('../models');
 const config = require('../configs/auth.config');
 const fetch = require('../helper/commonFetching');
+
 const User = db.user; 
 const Add = db.address;
 
@@ -73,7 +75,7 @@ exports.registration = async (req, res) =>
     }
     catch(error)
     {
-      console.log('Error during registration:', error); // Handle the error and send an appropriate response
+      console.log('Error during registration:', error.message); // Handle the error and send an appropriate response
     }
 };
 
@@ -114,9 +116,9 @@ exports.login = async (req, res) =>
                     message : "User Not found"
                 });
             }
-            var isValidPassword = bcrypt.compareSync(req.body.password, user.password);
+            var isValidPassword = bcrypt.compareSync(password, user.password);
             if(!isValidPassword)
-            {
+            { 
                 return res.status(401).send 
                 ({
                     message : "Invalid Password"
