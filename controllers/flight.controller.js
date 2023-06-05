@@ -6,8 +6,8 @@ exports.searchFlight = async (req, res) =>
     try 
     {
         
-        
-    }catch(err)
+    }
+    catch(err)
     {
         
     }

@@ -57,7 +57,7 @@ module.exports = async () =>
         }).catch((err) => 
         {
             console.log("Error while intializing the ADMIN DATA", err.message)
-        }) 
+        });
     }
     catch(err)
     { 

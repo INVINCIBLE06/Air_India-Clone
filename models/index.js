@@ -32,6 +32,7 @@ db.user = require('./user.model')(sequelize, Sequelize);
 db.address = require('./address.model')(sequelize, Sequelize, db.user);
 db.flight = require('./flight.model')(sequelize, Sequelize);
 db.airport = require('./airpot.model')(sequelize, Sequelize);
+db.schedule = require('./flightSchedule.model')(sequelize, Sequelize);
 
 db.user.belongsToMany(db.address,
     {
